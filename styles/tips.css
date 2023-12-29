@@ -54,12 +54,12 @@ display: none;
 }
 
 details > summary::before {
-    content: url('/ChimeraTools/images/expand.png');
+    content: url('/chimeratools/images/expand.png');
 height: 14px;
 }
 
 details[open] > summary::before {
-    content: url('/ChimeraTools/images/collapse.png');
+    content: url('/chimeratools/images/collapse.png');
     max-height: 14px;
 }
 

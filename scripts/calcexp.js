@@ -29,7 +29,7 @@ const calcExp = () => {
     // This is the amount of purity and skycharge pills needed, fixed so that if exp range falls between 40k and 50k it will up the purity
     let purCt = Math.floor(count / purity);
     let skyCt = Math.ceil((count - (purity * purCt)) / skycharge);
-    let fortuphantCt = Math.floor(count / fortuphant);
+    let fortuphantCt = Math.ceil(count / fortuphant);
     skyCt === 3 ? skyCt-- && purCt++ : "";
 
    
@@ -37,8 +37,7 @@ const calcExp = () => {
     
     // Update the results
     document.getElementById("purity-needed").innerText = purCt;
-    document.getElementById("skycharge-needed").innerText = skyCt; 
-    document.getElementById("fortuphant-needed").innerText = fortuphantCt
+    document.getElementById("skycharge-needed").innerText = skyCt;       
 }
 
 const reverseCalc = () => {

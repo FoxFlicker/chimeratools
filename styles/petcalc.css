@@ -12,7 +12,7 @@ html {
 body {
   font-family: Mingzat, "Book Antiqua", "Malgun Gothic";
   background: rgba(0, 0, 0, 0);
-  background-image: url("/ChimeraTools/images/petcalc/chimera.png");
+  background-image: url("/chimeratools/images/petcalc/chimera.png");
   background-position: 53vw 22vh;
   text-shadow: 4px 4px 8px #000;
   background-repeat: no-repeat;
