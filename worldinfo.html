@@ -1,57 +1,75 @@
 <!DOCTYPE html>
-    
-    <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chimeraland World Info Checklist</title>
     <link rel="preconnect" href="https://fonts.gstatic.com/" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mingzat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="/ChimeraTools/styles/common.css" />
     <link rel="stylesheet" href="/ChimeraTools/styles/worldinfo.css" />
     <link rel="stylesheet" href="/ChimeraTools/styles/template.css" />
 </head>
-<div id="navcall"></div>
+
 
 <body>
-    <main>
-        <div class="main">
-            <div class="row-bg">
-                <h1>Chimeraland World Info Checklist</h1>
-                <p>Use this checklist to easily reference what world info you've completed. -- Thank you Meagan and Dredd for data collection!
-                    <button id="print-button">Print your selected info</button>
-                </p>
-                <div class="grid-container fullpage">
-                        <div class="grid-item bs long-item" id="grid2-list">
-                        <h2>Battles</h2>
+    <div id="navcall"></div>
+    <div class="grid-container">
+        <main>
+            <div id="sidebar-container">
+                <div id="sidebar">
+                    <div class="sidebar-items">
+                    <h2 class="sidebar-title">
+                        Battles
+                    </h2>
                         <button type="button" class="book" id="monsters" data-category="monsters">Monsters</button>
                         <button type="button" class="book" id="myths" data-category="myths">Myths</button>
                         <button type="button" class="book" id="legends" data-category="legends">Legends</button>
-                        <h2>Collect</h2>
-                        <button type="button" class="book" id="pets" data-category="pets">Pets</button>
-                        <button type="button" class="book" id="attendants" data-category="attendants">Attendants</button>
-                        <button type="button" class="book" id="resources" data-category="resources">Resources</button>
-                        <h2 id="list-title"></h2>
-                            <ul id="list">
-                        </ul>
                     </div>
-                    <div class="grid-item bs wide-item" id="grid3">
-                        <h2>Info Tracker</h2>
-                    <div id="grid3-list">
-                        <ul id="selected-items"></ul>
-                    </div></div>
-                    <div class="bs" id="grid4">
-                        <h3>Required Materials for Attendants</h3>
-                        <div id="grid4-list">
-                            <ul id ="materials-list">
-
-                            </ul>
-                        </div>
+                    <div class="sidebar-items">
+                    <h2 class="sidebar-title">
+                        Collect
+                    </h2>
+                        <button type="button" class="book" id="pets" data-category="pets">Pets</button>
+                        <button type="button" class="book" id="attendants"
+                                data-category="attendants">Attendants</button>
+                        <button type="button" class="book" id="resources" data-category="resources">Resources</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+            <div class="main" id="main">
+                <div class="row-bg">
+                    <h1>Chimeraland World Info Checklist</h1>
+                    <p>Use this checklist to easily reference what world info you've completed. -- Thank you Meagan and
+                        Dredd for data collection!
+                        <button id="print-button">Print your selected info</button>
+                    </p>
+                    <h2 id="list-title"></h2>
+                    <ul id="list">
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-item" id="grid3">
+                <h2>Tracking</h2>
+                <div id="grid3-list">
+                    <ul id="selected-items">
+
+                    </ul>
+                </div>
+            </div>
+            <div id="grid-item" id="grid4">
+                <h3>Attendant Materials List</h3>
+                <div id="grid4-list">
+                    <ul id="materials-list">
+
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 <script src="scripts/nav/jquerynav.js"></script>
 <script src="scripts/worldinfo.js"></script>

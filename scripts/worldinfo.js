@@ -5,7 +5,6 @@ $.getScript('scripts/widata.js', function () {
     };
 
     const listSelectors = {
-        grid1: '#grid1-list',
         grid2: '#grid2-list',
         grid3: '#grid3-list'
     };
@@ -110,11 +109,11 @@ $.getScript('scripts/widata.js', function () {
     const updateGrid3 = () => {
         const grid3 = $(listSelectors.grid3);
         grid3.empty();
-        
+
         for (let category in state.selectedItems) {
             const categoryTitle = $("<li>").addClass("category-title").text(category);
             grid3.append(categoryTitle);
-            
+
             state.selectedItems[category].forEach((item) => {
                 const itemName = item instanceof Attendant ? item.name : item;
                 const listItem = $("<li>").text(itemName);
@@ -181,6 +180,7 @@ $.getScript('scripts/widata.js', function () {
             // Find if the item already exists in the materials list
             let material = materials.find(mat => mat.item === attendant.item);
 
+            let n = attendants.name;
             if (material) {
                 // If the material exists, increase the quantity by 10
                 material.quantity += 10;
@@ -190,12 +190,13 @@ $.getScript('scripts/widata.js', function () {
             }
 
             // Check if the attendant is from Octofish or Scaly village
-            if (attendant.village.includes("Octofish") || attendant.village.includes("Scaly")) {
+            if (attendant.village.includes("Octofish") || attendant.village.includes("Scaly") || attendant.name === "Draros") {
                 purpleStones += attendant.amount;
             } else {
                 inkblackStones += attendant.amount;
             }
         }
+
 
         // Add inkblackStones and purpleStones to the materials list if they are greater than 0
         if (inkblackStones > 0) {
@@ -211,4 +212,51 @@ $.getScript('scripts/widata.js', function () {
         // Update grid4 with the sorted materials list
         updateGrid4(sortedMaterials);
     }
-})
+});
+
+
+
+
+function openRightPanel() {
+    document.getElementById("rightPanel").style.width = "280px";
+}
+
+function closeRightPanel() {
+    document.getElementById("rightPanel").style.width = "0";
+}
+
+
+
+// Responsive for Touchscreen
+
+document.addEventListener('DOMContentLoaded', function () {
+    let touchDevice = false;
+    if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        touchDevice = true;
+    }
+
+    const submenuItems = document.querySelectorAll('.has-submenu');
+
+    submenuItems.forEach(item => {
+        item.addEventListener('click', function (event) {
+            if (touchDevice && !item.classList.contains('submenu-open')) {
+                event.preventDefault();
+                item.classList.add('submenu-open');
+            } else {
+                item.classList.remove('submenu-open');
+            }
+        });
+    });
+});
+
+$(document).on('touchstart', function (e) {
+    $(".filters ul.children").fadeOut(300); /*Close filters drop-downs if user taps ANYWHERE in the page*/
+});
+
+$('.filters ul.children').on("bind", 'touchstart', function (event) {
+    event.stopPropagation(); /*Make all touch events stop at the .filters ul.children container element*/
+});
+
+$(".filters ul.children a").on("click", function () {
+    $(".filters ul.children").fadeOut(300); /*Close filters drop-downs if user taps on any link in drop-down*/
+});

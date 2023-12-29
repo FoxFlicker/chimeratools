@@ -277,6 +277,57 @@ const legends = {
 
 
 const pets = {
+    "Rare": [
+        "Stoneppo",
+        "Condor",
+        "White Condor",
+        "Alligon",
+        "Grougana",
+        "Newt (Rare)",
+        "Gripine",
+        "Snopine",
+        "Luping",
+        "Beetlefly",
+        "Fortuphant",
+        "Rhino",
+        "Wolfspider",
+        "Scorab",
+        "Warcrab",
+        "Vuldo",
+        "Grizzly",
+        "Snowbear",
+        "Leoparbeak",
+        "Litiger",
+        "Gratoise",
+        "Horsedeer",
+        "Bosalo",
+        "Platyzard",
+        "Rockboar",
+        "Vultura",
+        "Crystal Litiger",
+        "Crystal Horsedeer",
+        "Plate Litiger",
+        "Plate Fortuphant",
+        "Plate Snowbear",
+        "Spike Rhino",
+        "Spear Rhino",
+        "Horned Rhino",
+        "Spike Grizzly",
+        "Lotus Horsedeer",
+        "Gold Horsedeer",
+        "Horned Bosalo",
+        "Halcyonet",
+        "Pelitork",
+        "Palomino Horse",
+        "Rockram",
+        "Ashfoot Gripine",
+        "Brownfoot Gripine",
+        "Lichen Bufonidae",
+        "Snail",
+        "Snowy Snopine",
+        "Ember Lupine",
+        "Poisonworm"
+    ],
     "Children": [
         "Crowned Quetzal",
         "Quetzalcoatlus",
@@ -479,6 +530,10 @@ const pets = {
         "Hydra"
     ]
 };
+
+for (let i in pets) {
+    pets[i].sort();
+}
 
 class Attendant {
     constructor(name, village, item, amount) {

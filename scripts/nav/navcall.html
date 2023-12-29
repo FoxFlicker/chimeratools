@@ -1,110 +1,147 @@
 <style>
-.navbar {
-    z-index: 20;
-    overflow: hidden;
-    background-color: #1b1919;
-    color: rgba(248, 241, 175, 0.796);    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    border-bottom: 7px solid rgba(168, 248, 144);
-    }
-
-
-
-.navbar, .nav *{
-text-shadow: none;
-font-weight: 550;
-font-size: 1.1em
+#navbar {
+	background: #333333;
+	color: #FFF;
+	height: 50px;
+	padding-left: 18px;
+	border-radius: 4px;
+	border: 4px solid #26DE3F;
 }
-.nav {
-    overflow: hidden;
+#navbar ul, #navbar .link {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none
+}
+#navbar ul {
+	width: 100%;
+}
+#navbar .link {
+	float: left;
+	display: inline;
+	position: relative;
+}
+#navbar a {
+	display: block;
+	line-height: 42px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#navbar a.dropdown-arrow:after {
+	content: "\2193";
+	margin-left: 5px;
+}
+#navbar .link a:hover {
+	color: #26DE3F;
+	background: #F2F2F2;
+}
+#navbar input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+#navbar label {
+	display: none;
+	line-height: 42px;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+#navbar label:before {
+	font-size: 1.6em;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+#navbar ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #FFFFFF;
+	position: absolute;
+	z-index: 99;
+	display: none;
+	transition: 2s ease all;
+}
+#navbar ul.sub-menus .link {
+	display: block;
+	width: 100%;
+}
+#navbar ul.sub-menus a {
+	color: #FFFFFF;
+	font-size: 15px;
+}
+#navbar .link:hover ul.sub-menus {
+	display: block
+}
+#navbar ul.sub-menus a:hover{
+	background: #F2F2F2;
+	color: #26DE3F;
+}
+@media screen and (max-width: 800px){
+	#navbar {position:relative}
+	#navbar ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
+	#navbar ul.sub-menus {width:100%;position:static;}
+	#navbar ul.sub-menus a {padding-left:30px;}
+	#navbar .link {display:block;float:none;width:auto;}
+	#navbar input, #navbar label {position:absolute;top:0;left:0;display:block}
+	#navbar input {z-index:4}
+	#navbar input:checked + label {color:white}
+	#navbar input:checked + label:before {content:"\00d7"}
+	#navbar input:checked ~ ul {display:block}
 }
 
-.nav .navbtn, .navbar a, button {
-    font-size: 1em;
-    max-height: 3vh;
-    width: -moz-fit-content;
-    width: fit-content;
-    max-width: max-content;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: inherit;
-    font-family: inherit;
-    text-decoration: none;
-    margin: 1.2vh 2vw;
-}
 
 
-.navbar a:hover,
-.nav:hover .navbtn {
-    color: rgba(168, 248, 144, 0.744);
-}
-.submenu {
-    display: none;
-    margin: -4px;
-    position: absolute;
-    left: 0;
-    background-color: #292828;
-    width: 100vw;
-    z-index: 1;
-    border: 5px solid rgb(149, 248, 107);
-}
+</style>
 
-.submenu a {
-    float: left;
-    color: white;
-    text-decoration: none;
-}
 
-.submenu a:hover {
-    text-shadow: -4px -3px 7px #000, 3px 3px 10px #000, 2px -4px 10px #000;
-    color: black;
-    color: rgba(168, 248, 144, 0.744);
-    text-decoration: underline;
-}
+<nav id='navbar'>
+    <input type='checkbox' id='responsive-navbar' onclick='updatemenu()'><label></label>
+    <ul>
+        <li class="link"><a href='foxflicker.github.io/ChimeraTools/'>Home</a></li>
+        <li class="link"><a class='dropdown-arrow'>Tools</a>
+            <ul class='sub-menus'>
+                <li class="link"><a href='/ChimeraTools/petcalc.html'>Pet EXP Calculator</a></li>
+                <li class="link"><a href='/ChimeraTools/worldinfo.html'>World Info Helper</a></li>
+			</class></li></li></ul></nav>
+        </li>
+        <li class="link"><a class='dropdown-arrow'>Guides</a>
+            <ul class='sub-menus'>
+                <li class="link"><a href='/ChimeraTools/guides/general.html'>General</a></li>
+                <li class="link"><a href='/ChimeraTools/guides/merfolk.html'>Merfolk</a></li>
+                <li class="link"><a href='/ChimeraTools/guides/weapons.html'>Weapons & Runes</a></li>
+                <li class="link"><a href='/ChimeraTools/guides/cultivate.html'>Cultivate</a></li>
+                <li class="link"><a href='/ChimeraTools/guides/mounts.html'>Premium Mounts</a></li>
+            </ul>
+        </li>
+        <li class="link"><a href='tips.html'>Tips</a></li>
+        <li class="link"><a class='dropdown-arrow' href='#0'>Contact</a>
+            <ul class='sub-menus'>
+                <li class="link"><a href='mailto:varefox@gmail.com'>varefox@gmail.com</a></li>
+                <li class="link"><a href='#0'>Varefox#2568 Discord</a></li>
+                <li class="link"><a href='#0'>In Game - Fox</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-.disabled:hover {
-    background-color: inherit;
-}
 
-.nav:hover .submenu {
-    display: block;
-}
-</style>    
-<div class='navbar'>
-        <div class="nav">
-            <a href='https://varefox.github.io/ChimeraTools/'><button type='button' class="navbtn">Home</button></a></div>
-        <div class='nav'>
-            <button type='menu' class='navbtn'><a href="tools.html">Tools</a> <i class='fa fa-caret-down'></i></button>
-            <div class='submenu'>
-                <a href='/ChimeraTools/petcalc.html'>Pet EXP Calculator</a>
-                <a href='/ChimeraTools/worldinfo.html'>World Info Assistant</a>
-                <!-- <a href='/ChimeraTools/cookbook.html' class="disabled"><s>Cookbook</a></s> -->
-                <!-- <a href='#craftplan' class="disabled"><s>Artisan's Daybook</s> -->
-                </a>
-            </div>
-        </div>
-        <div class='nav'>
-            <button type='menu' class='navbtn'><a href="guides.html">Guides</a><i class='fa fa-caret-down'></i></button>
-            <div class='submenu'>
-                <a href='guides/general.html'>General Guide</a>
-                <a href='guides/merfolk.html'>Merfolk</a>
-                <a href='guides/weapons.html'>Weapons & Runes</a>
-                <a href="guides/cultivation.html">Cultivation</a>
-            </div>
-        </div>
-        <div class='nav'>
-            <a href='tips.html'><button type='button' class='navbtn'>Tricks</button></a>
-        </div>
-        <div class='nav'>
-            <button type='button' class='navbtn'>Contact <i class='fa fa-caret-down'></i></button>
-            <div class='submenu'>
-                <a href='mailto:varefox@gmail.com'><i class='fa fa-envelope'></i> varefox@gmail.com</a>
-                <a href='#'>Discord: varefox#2568</a>
-                <a href='#'>In game - Fox</a>
-            </div>
-        </div>
-    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+        $("#navcall").load("scripts/nav/navcall.html");
+    })
+    function updatemenu() {
+            if (document.getElementById('responsive-navbar').checked == true) {
+                document.getElementById('navbar').style.borderBottomRightRadius = '0';
+                document.getElementById('navbar').style.borderBottomLeftRadius = '0';
+            } else {
+                document.getElementById('navbar').style.borderRadius = '4px';
+            }
+        }
+</script>
